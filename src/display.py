@@ -1,5 +1,5 @@
 class Display:
-    type = "Display"
+    variant = "Display"
     def __init__(self, id=0, message="", is_on=False, car_park=None):
         self.id = id
         self.message = message
@@ -7,4 +7,7 @@ class Display:
         self.car_park = car_park
 
     def __str__(self):
-        return f"{self.type}\nid: {self.id}\n{self.message}\n"
+        return f"{self.variant}\nid: {self.id}\n{self.message}\n"
+
+    def update(self, message):
+        self.message = message
