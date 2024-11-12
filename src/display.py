@@ -9,5 +9,7 @@ class Display:
     def __str__(self):
         return f"{self.variant}\nid: {self.id}\n{self.message}\n"
 
-    def update(self, message):
-        self.message = message
+    def update(self, data):
+        print(self.message)
+        for key, value in data.items():
+            print(f"{key}: {value}")
