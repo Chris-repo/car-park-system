@@ -33,8 +33,11 @@ class CarPark:
         self.update_displays()
 
     def remove_car(self, plate):
-        if plate in self.plates:
+        try:
             self.plates.remove(plate)
+        except ValueError as value_error:
+            raise value_error
+        finally:
             self.update_displays()
 
     def update_displays(self):

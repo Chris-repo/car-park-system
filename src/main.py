@@ -26,6 +26,9 @@ for _ in range(0, 15):
 print(car_park)
 
 for _ in range(0, 10):
-    exit_sensor.detect_vehicle()
+    try:
+        exit_sensor.detect_vehicle()
+    except ValueError:
+        pass
 
 print(car_park)
