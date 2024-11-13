@@ -3,7 +3,7 @@ from sensor import EntrySensor, ExitSensor
 from display import Display
 
 #JUNK TEST CODE
-car_park = CarPark(capacity=100)
+car_park = CarPark(capacity=10)
 
 entry_sensor = EntrySensor(id=1, car_park=car_park)
 car_park.register(entry_sensor)
@@ -17,12 +17,15 @@ car_park.register(exit_sensor)
 exit_display = Display(id=2, message="Exit")
 car_park.register(exit_display)
 
+for _ in range(0, 20):
+    entry_sensor.detect_vehicle()
 
-entry_sensor.detect_car("TEST")
-#print(car_park)
+for _ in range(0, 15):
+    exit_sensor.detect_vehicle()
 
-exit_sensor.detect_car("TEST")
-#print(car_park)
+print(car_park)
 
-exit_sensor.detect_car("TEST")
-#print(car_park)
+for _ in range(0, 10):
+    exit_sensor.detect_vehicle()
+
+print(car_park)

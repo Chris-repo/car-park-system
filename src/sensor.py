@@ -17,12 +17,11 @@ class Sensor(ABC):
     def update_car_park(self, plate):
         ...
 
-    @staticmethod
-    def scan_plate():
+    def _scan_plate(self):
         return f"FAKE-{random.randint(0, 999):03d}"
 
-    def detect_car(self, plate=None):
-        vehicle_plate = plate or self.scan_plate()
+    def detect_vehicle(self, plate=None):
+        vehicle_plate = plate or self._scan_plate()
         self.update_car_park(vehicle_plate)
 
 
@@ -35,6 +34,10 @@ class EntrySensor(Sensor):
 
 class ExitSensor(Sensor):
     variant = "Exit Sensor"
+
+    def _scan_plate(self):
+        if len(self.car_park.plates):
+            return random.choice(self.car_park.plates)
 
     def update_car_park(self, plate):
         self.car_park.remove_car(plate)
