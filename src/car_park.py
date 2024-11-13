@@ -1,6 +1,7 @@
 from sensor import Sensor
 from display import Display
 
+
 class CarPark:
     _available_bays = 0
 

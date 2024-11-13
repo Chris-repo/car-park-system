@@ -10,6 +10,11 @@ class Display:
         return f"{self.variant}\nid: {self.id}\n{self.message}\n"
 
     def update(self, data):
-        print(self.message)
         for key, value in data.items():
-            print(f"{key}: {value}")
+            match key:
+                case "message":
+                    self.message = value
+                case "is_on":
+                    self.is_on = value
+                case _:
+                    print(f"{key}: {value}")
