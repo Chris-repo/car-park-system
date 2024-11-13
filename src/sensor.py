@@ -5,9 +5,9 @@ from abc import ABC, abstractmethod
 class Sensor(ABC):
     variant = "Sensor"
 
-    def __init__(self, id=0, is_active=False, car_park=None):
+    def __init__(self, id=0, is_on=False, car_park=None):
         self.id = id
-        self.is_active = is_active
+        self.is_on = is_on
         self.car_park = car_park
 
     def __str__(self):
