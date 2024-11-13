@@ -28,3 +28,7 @@ class TestSensor(unittest.TestCase):
         self.assertEqual(self.car_park.plates[0], "TEST")
         self.exit_sensor.detect_vehicle("TEST")
         self.assertEqual(self.car_park.plates, [])
+
+
+if __name__ == "__main__":
+    unittest.main()
