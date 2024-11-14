@@ -98,5 +98,4 @@ class TestCarPark(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.TestLoader.sortTestMethodsUsing = None
     unittest.main()
