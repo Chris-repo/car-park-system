@@ -4,38 +4,25 @@ from display import Display
 
 
 def main():
-    """
-    THIS IS ALL JUNK TEST CODE
-    """
-    car_park = CarPark(capacity=10)
 
-    entry_sensor = EntrySensor(id=1, car_park=car_park)
+    car_park = CarPark("moondalup",100, log_file="../logs/moondalup.txt")
+
+    entry_sensor = EntrySensor(id=1, is_on=True, car_park=car_park)
     car_park.register(entry_sensor)
 
-    entry_display = Display(id=1, message="Entry")
-    car_park.register(entry_display)
-
-    exit_sensor = ExitSensor(id=2, car_park=car_park)
+    exit_sensor = ExitSensor(id=2, is_on=True, car_park=car_park)
     car_park.register(exit_sensor)
 
-    exit_display = Display(id=2, message="Exit")
-    car_park.register(exit_display)
+    welcome_display = Display(id=1, message="Welcome to Moondalup", car_park=car_park)
+    car_park.register(welcome_display)
 
-    for _ in range(0, 20):
+    # drive 10 cars into the car park
+    for _ in range(10):
         entry_sensor.detect_vehicle()
 
-    for _ in range(0, 15):
+    # drive 2 cars out of the car park
+    for _ in range(2):
         exit_sensor.detect_vehicle()
-
-    print(car_park)
-
-    for _ in range(0, 10):
-        try:
-            exit_sensor.detect_vehicle()
-        except ValueError:
-            pass
-
-    print(car_park)
 
 
 if __name__ == "__main__":

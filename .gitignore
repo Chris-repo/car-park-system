@@ -162,7 +162,7 @@ cython_debug/
 .idea/
 
 # Car Park logs
-logs/
+#logs/
 
 # Car Park Configs
-config/
+#config/
